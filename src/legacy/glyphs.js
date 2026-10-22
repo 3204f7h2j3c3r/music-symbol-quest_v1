@@ -108,6 +108,5 @@
   }
 
   const api = { svgFor, GLYPH_IDS: Object.keys(GLYPHS) };
-  if (typeof module !== 'undefined' && module.exports) module.exports = api;
-  else root.MusicGlyphs = api;
-})(typeof window !== 'undefined' ? window : globalThis);
+  root.MusicGlyphs = api;
+  })(typeof window !== 'undefined' ? window : globalThis);

@@ -131,6 +131,5 @@
   }
 
   const api = { QUESTION_TYPES, createRng, shuffle, buildQuestion, calcRank, createGame };
-  if (typeof module !== 'undefined' && module.exports) module.exports = api;
-  else root.MusicGame = api;
-})(typeof window !== 'undefined' ? window : globalThis);
+  root.MusicGame = api;
+  })(typeof window !== 'undefined' ? window : globalThis);

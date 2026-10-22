@@ -67,6 +67,5 @@
   ];
 
   const api = { CATEGORIES, SYMBOLS };
-  if (typeof module !== 'undefined' && module.exports) module.exports = api;
-  else root.MusicData = api;
-})(typeof window !== 'undefined' ? window : globalThis);
+  root.MusicData = api;
+  })(typeof window !== 'undefined' ? window : globalThis);

@@ -132,7 +132,7 @@ function App() {
       <header className="site-header">
         <div className="header-inner">
           <div className="brand-mark" aria-hidden="true">
-            <img src="/headphones.svg" alt="" width="21" height="21" />
+            <img src={`${import.meta.env.BASE_URL}headphones.svg`} alt="" width="21" height="21" />
           </div>
           <div>
             <h1 className="brand-title">音楽記号クエスト</h1>
