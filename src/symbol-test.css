@@ -1,0 +1,405 @@
+
+.symbol-test {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  color: var(--text-main, #202124);
+}
+
+.symbol-test-header {
+  margin-bottom: 24px;
+}
+
+.symbol-test-header h1 {
+  margin: 0 0 8px;
+  font-size: 1.7rem;
+}
+
+.symbol-test-header p {
+  margin: 0 0 12px;
+  color: var(--text-muted, #777b82);
+}
+
+.symbol-test-header a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.symbol-test-progress {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.symbol-test-progress-track {
+  height: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #e5e7eb;
+}
+
+.symbol-test-progress-fill {
+  height: 100%;
+  background: #64748b;
+  transition: width 160ms ease;
+}
+
+.symbol-test-current {
+  padding: 20px;
+  border: 1px solid var(--border, #e6e7e9);
+  border-radius: 14px;
+  background: var(--surface, #fff);
+}
+
+.symbol-test-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 20px;
+}
+
+.symbol-test-name > span {
+  width: 100%;
+  color: var(--text-muted, #777b82);
+  font-size: 0.85rem;
+}
+
+.symbol-test-name h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.symbol-test-name code {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.symbol-test-comparison {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+.symbol-test-sample {
+  min-width: 0;
+}
+
+.symbol-test-sample h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.symbol-test-problem {
+  display: flex;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--border, #e6e7e9);
+  border-radius: 10px;
+  background: #fff;
+  font-size: clamp(3.5rem, 12vw, 5rem);
+  line-height: 1.2;
+}
+
+.symbol-test-problem > .music-symbol {
+  max-width: 100%;
+}
+
+.symbol-test-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.symbol-test-choice {
+  display: flex;
+  min-width: 0;
+  min-height: 72px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border, #e6e7e9);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.symbol-test-choice > .music-symbol {
+  max-width: 100%;
+}
+
+.symbol-test-raw {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border, #e6e7e9);
+  color: var(--text-muted, #777b82);
+  font-size: 0.8rem;
+}
+
+.symbol-test-raw code {
+  color: var(--text-main, #202124);
+  overflow-wrap: anywhere;
+}
+
+.symbol-test-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.symbol-test-navigation button {
+  padding: 10px 16px;
+  border: 1px solid var(--border, #d1d5db);
+  border-radius: 9px;
+  background: var(--surface, #fff);
+  color: inherit;
+  cursor: pointer;
+}
+
+.symbol-test-navigation button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+@media (max-width: 600px) {
+  .symbol-test {
+    padding: 18px 10px 32px;
+  }
+
+  .symbol-test-current {
+    padding: 14px;
+  }
+
+  .symbol-test-comparison {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .symbol-test-problem {
+    min-height: 160px;
+  }
+
+  .symbol-test-navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .symbol-test-navigation button:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* 問題表示：長い速度記号が大きくなりすぎないようにする */
+.symbol-test-problem {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+/* 問題・解答欄ともに、文字列を途中で折り返さない */
+.symbol-test-problem .music-symbol--font,
+.symbol-test-choice .music-symbol--font {
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* 解答欄：記号の表示サイズを抑える */
+.symbol-test-choice .music-symbol {
+  font-size: 1.5rem;
+}
+
+/* 解答欄：休符は特に大きく見えるため縮小 */
+.symbol-test-choice .music-symbol--rest {
+  transform: scale(0.72);
+}
+
+/* 長い記号名のはみ出しを防ぐ */
+.symbol-test-choice {
+  min-width: 0;
+}
+
+.symbol-test-choice > span:last-child {
+  min-width: 0;
+  overflow: hidden;
+}
+
+
+/* ===== 記号テスト用のサイズ調整 ===== */
+
+/* 問題表示：文字系の速度記号が大きすぎないようにする */
+.symbol-test-problem-inner {
+  font-size: clamp(1.5rem, 5vw, 2.75rem);
+  line-height: 1.2;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* 問題表示の音符：わずかな縦位置補正 */
+.symbol-test-problem .music-symbol--font {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* 解答欄：文字系・SVG系の基本サイズ */
+.symbol-test-choice .music-symbol--font,
+.symbol-test-choice .music-symbol--svg {
+  font-size: 1.25rem;
+}
+
+/* 解答欄：全休符・二分休符は小さめに */
+.symbol-test-choice .music-symbol--rest {
+  width: 44px;
+  height: 48px;
+  transform: scale(0.72);
+  transform-origin: center;
+}
+
+/* 解答欄：ほかの SVG 記号は少し縮小 */
+.symbol-test-choice .music-symbol--svg {
+  transform: scale(0.8);
+  transform-origin: center;
+}
+
+/* 長い文字列を途中で折り返さない */
+.symbol-test-problem .music-symbol,
+.symbol-test-choice .music-symbol {
+  white-space: nowrap;
+}
+
+/* 選択肢の記号が枠からはみ出さないようにする */
+.symbol-test-choice {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.symbol-test-choice > .music-symbol {
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: 100%;
+}
+
+
+/* 全音符：問題・解答の両方を少し大きく */
+.symbol-test-problem .music-symbol--font:has(+ .whole-note) {
+  font-size: inherit;
+}
+
+.symbol-test-problem .music-symbol--font,
+.symbol-test-choice .music-symbol--font {
+  /* ほかの記号には適用しないため、下の個別指定を使用 */
+}
+
+.symbol-test-problem .music-symbol--font,
+.symbol-test-choice .music-symbol--font {
+  line-height: 1;
+}
+
+/* 全音符だけ少し大きくする */
+.symbol-test-problem .music-symbol--whole-note,
+.symbol-test-choice .music-symbol--whole-note {
+  font-size: 2.5em;
+}
+
+
+/* 二分音符：問題・解答の両方を少し大きく */
+.symbol-test-problem .music-symbol--half-note,
+.symbol-test-choice .music-symbol--half-note {
+  font-size: 2.5em;
+}
+
+/* 二分音符：問題表示だけ少し下げる */
+.symbol-test-problem .music-symbol--half-note {
+  transform: translateY(25px);
+}
+
+/* 二分音符：位置を少し下げる */
+.symbol-test-choice .music-symbol--half-note {
+  transform: translateY(5px);
+}
+
+/* 四分音符：問題表示だけ下げる */
+.symbol-test-problem .music-symbol--quarter-note {
+  transform: translateY(25px);
+}
+
+/* 四分音符：解答欄も下げる */
+.symbol-test-choice .music-symbol--quarter-note {
+  transform: translateY(5px);
+}
+
+/* 四分音符：問題・解答の両方を少し大きく */
+.symbol-test-problem .music-symbol--quarter-note ,
+.symbol-test-choice .music-symbol--quarter-note {
+  font-size: 2.5em;
+}
+
+
+/* 八分音符：問題表示だけ下げる */
+.symbol-test-problem .music-symbol--eighth-note {
+  transform: translateY(25px);
+}
+
+/* 八分音符：解答欄も下げる */
+.symbol-test-choice .music-symbol--eighth-note {
+  transform: translateY(5px);
+}
+
+/* 八分音符：問題・解答の両方を少し大きく */
+.symbol-test-problem .music-symbol--eighth-note,
+.symbol-test-choice .music-symbol--eighth-note {
+  font-size: 2.5em;
+}
+
+
+/* 八分音符：解答欄で上側が欠ける問題を修正 */
+.symbol-test-choice .music-symbol--eighth-note {
+  overflow: visible;
+  line-height: 1.2;
+  transform: translateY(5px);
+}
+
+
+/* 十六分音符：問題表示だけ下げる */
+.symbol-test-problem .music-symbol--sixteenth-note {
+  transform: translateY(25px);
+}
+
+/* 十六分音符：解答欄も下げる */
+.symbol-test-choice .music-symbol--sixteenth-note {
+  transform: translateY(5px);
+  overflow: visible;
+  line-height: 1.5;
+}
+
+/* 十六分音符：問題・解答の両方を少し大きく */
+.symbol-test-problem .music-symbol--sixteenth-note,
+.symbol-test-choice .music-symbol--sixteenth-note {
+  font-size: 2.5em;
+}
+
+/* 全休符：問題表示だけ少し大きく */
+.symbol-test-problem .music-symbol--whole-rest {
+  transform: scale(1.5);
+}
+
+/* 二分休符：問題表示だけ大きく */
+.symbol-test-problem .music-symbol--half-rest {
+  transform: scale(1.5);
+}
+
+.symbol-test-choice .music-symbol--quarter-rest {
+  transform: scale(2.5);
+}
+
+.symbol-test-problem .music-symbol--quarter-rest {
+  transform: scale(3.5);
+}
